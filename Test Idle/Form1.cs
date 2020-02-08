@@ -6,8 +6,11 @@ namespace WindowsFormsApp1 {
         Player p;
         String path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\TestIdle";
         String filename = "TestIdle.xml";
+        const double _TicksPerSecond = 20;
+        const double _MillisecondsPerSecond = 1000;
         public Form1() {
             InitializeComponent();
+            timer1.Interval = (int) (1.0 / _TicksPerSecond * _MillisecondsPerSecond);
             try {
                 System.IO.Directory.CreateDirectory(path);
             } catch {}
@@ -19,13 +22,13 @@ namespace WindowsFormsApp1 {
         }
 
         private void timer1_Tick(object sender, EventArgs e) {
-            p.energyPerTick = p.energyPerTickBase + ((float)p.solarCollectorsLevel / 20);
+            p.energyPerTick = p.energyPerTickBase + ((double)p.solarCollectorsLevel * 2.5 * _TicksPerSecond / _MillisecondsPerSecond);
             if (p.energyMax < p.energyCap) {
                 p.energyIdle += p.energyPerTick;
                 p.energyMax += p.energyPerTick;
             }
             if (p.solarCollectorsEnergy > 0) {
-                p.solarCollectorsExperience += ((float)p.solarCollectorsEnergy / 10000);
+                p.solarCollectorsExperience += ((double)p.solarCollectorsEnergy / 10000);
             }
             if (p.solarCollectorsExperience > 0) {
                 p.solarCollectorsLevel = (int)Math.Floor(p.solarCollectorsExperience / 10);
@@ -37,7 +40,7 @@ namespace WindowsFormsApp1 {
             txtEnergy.Text = String.Format("Current Energy: {0:0}/{1:0}", Math.Floor(p.energyIdle), Math.Floor(p.energyMax));
             txtSolarCollectorsEnergyLabel.Text = $"{p.solarCollectorsEnergy}";
             txtSolarCollectorsLevelLabel.Text = $"{p.solarCollectorsLevel}";
-            txtEnergyHoverLabel.Text = ($"Your energy per second is: {p.energyPerTick*20:0.00}");
+            txtEnergyHoverLabel.Text = ($"Your energy per second is: {p.energyPerTick * _TicksPerSecond:0.00}");
             txtLifeTime.Text = String.Format("{0:hh}:{0:mm}:{0:ss}", DateTime.UtcNow.Subtract(p.startTime));
         }
 

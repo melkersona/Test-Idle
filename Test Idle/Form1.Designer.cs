@@ -312,11 +312,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 540);
+            this.Controls.Add(this.txtEnergyHoverLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupboxStats);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpboxComponents);
-            this.Controls.Add(this.txtEnergyHoverLabel);
             this.Name = "Form1";
             this.Text = "Test Idle";
             this.grpboxComponents.ResumeLayout(false);

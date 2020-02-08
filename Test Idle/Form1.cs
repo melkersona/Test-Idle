@@ -10,7 +10,7 @@ namespace WindowsFormsApp1 {
         const double _MillisecondsPerSecond = 1000;
         public Form1() {
             InitializeComponent();
-            timer1.Interval = (int) (1.0 / _TicksPerSecond * _MillisecondsPerSecond);
+            timerTick.Interval = (int) (1.0 / _TicksPerSecond * _MillisecondsPerSecond);
             try {
                 System.IO.Directory.CreateDirectory(path);
             } catch {}
@@ -36,6 +36,9 @@ namespace WindowsFormsApp1 {
             updateText();
         }
 
+        private void timerAutoSave_Tick(object sender, EventArgs e) {
+            new SaveLoad().save(path, filename, p);
+        }
         private void updateText() {
             txtEnergy.Text = String.Format("Current Energy: {0:0}/{1:0}", Math.Floor(p.energyIdle), Math.Floor(p.energyMax));
             txtSolarCollectorsEnergyLabel.Text = $"{p.solarCollectorsEnergy}";

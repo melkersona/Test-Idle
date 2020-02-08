@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerTick = new System.Windows.Forms.Timer(this.components);
             this.txtEnergy = new System.Windows.Forms.TextBox();
             this.txtSollarCollectorsComponentLabel = new System.Windows.Forms.TextBox();
             this.btnSollarCollectorDeallocate = new System.Windows.Forms.Button();
@@ -50,6 +50,7 @@
             this.groupboxStats = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtLifeTimeLabel = new System.Windows.Forms.TextBox();
+            this.timerAutoSave = new System.Windows.Forms.Timer(this.components);
             this.grpboxComponents.SuspendLayout();
             this.panelSolarCollector.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -57,11 +58,11 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // timer1
+            // timerTick
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 5;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerTick.Enabled = true;
+            this.timerTick.Interval = 50;
+            this.timerTick.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // txtEnergy
             // 
@@ -307,6 +308,11 @@
             this.txtLifeTimeLabel.TabStop = false;
             this.txtLifeTimeLabel.Text = "Current Time:";
             // 
+            // timerAutoSave
+            // 
+            this.timerAutoSave.Interval = 30000;
+            this.timerAutoSave.Tick += new System.EventHandler(this.timerAutoSave_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,7 +341,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerTick;
         private System.Windows.Forms.TextBox txtEnergy;
         private System.Windows.Forms.TextBox txtSollarCollectorsComponentLabel;
         private System.Windows.Forms.Button btnSollarCollectorDeallocate;
@@ -356,6 +362,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtLifeTime;
         private System.Windows.Forms.TextBox txtLifeTimeLabel;
+        private System.Windows.Forms.Timer timerAutoSave;
     }
 }
 

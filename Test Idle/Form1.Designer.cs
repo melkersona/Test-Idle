@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace TestIdle
 {
     partial class Form1
     {
@@ -51,6 +51,7 @@
             this.groupboxStats = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timerAutoSave = new System.Windows.Forms.Timer(this.components);
+            this.btnPrestige = new System.Windows.Forms.Button();
             this.grpboxComponents.SuspendLayout();
             this.panelSolarCollector.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -221,7 +222,7 @@
             // 
             this.txtComonentNameLabel.BackColor = System.Drawing.SystemColors.Control;
             this.txtComonentNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtComonentNameLabel.Location = new System.Drawing.Point(6, 19);
+            this.txtComonentNameLabel.Location = new System.Drawing.Point(14, 19);
             this.txtComonentNameLabel.Name = "txtComonentNameLabel";
             this.txtComonentNameLabel.ReadOnly = true;
             this.txtComonentNameLabel.Size = new System.Drawing.Size(84, 13);
@@ -245,6 +246,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.btnPrestige);
             this.groupBox1.Controls.Add(this.txtLifeTimeLabel);
             this.groupBox1.Controls.Add(this.txtLifeTime);
             this.groupBox1.Controls.Add(this.btnSave);
@@ -310,8 +312,19 @@
             // 
             // timerAutoSave
             // 
+            this.timerAutoSave.Enabled = true;
             this.timerAutoSave.Interval = 30000;
             this.timerAutoSave.Tick += new System.EventHandler(this.timerAutoSave_Tick);
+            // 
+            // btnPrestige
+            // 
+            this.btnPrestige.Location = new System.Drawing.Point(8, 277);
+            this.btnPrestige.Name = "btnPrestige";
+            this.btnPrestige.Size = new System.Drawing.Size(77, 23);
+            this.btnPrestige.TabIndex = 3;
+            this.btnPrestige.Text = "RESET";
+            this.btnPrestige.UseVisualStyleBackColor = true;
+            this.btnPrestige.Click += new System.EventHandler(this.btnPrestige_Click);
             // 
             // Form1
             // 
@@ -363,6 +376,7 @@
         private System.Windows.Forms.TextBox txtLifeTime;
         private System.Windows.Forms.TextBox txtLifeTimeLabel;
         private System.Windows.Forms.Timer timerAutoSave;
+        private System.Windows.Forms.Button btnPrestige;
     }
 }
 

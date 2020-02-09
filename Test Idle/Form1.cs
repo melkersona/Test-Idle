@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1 {
+namespace TestIdle {
     public partial class Form1 : Form {
         Player p;
         String path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\TestIdle";
@@ -20,16 +20,16 @@ namespace WindowsFormsApp1 {
         }
 
         private void timer1_Tick(object sender, EventArgs e) {
-            p.energyPerTick = p.energyPerTickBase + ((double)p.solarCollectorsLevel * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
+            p.energyPerTick = p.energyPerTickBase + ((double)p.solarCollectors.level * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
             if (p.energyMax < p.energyCap) {
                 p.energyIdle += p.energyPerTick;
                 p.energyMax += p.energyPerTick;
             }
-            if (p.solarCollectorsEnergy > 0) {
-                p.solarCollectorsExperience += ((double)p.solarCollectorsEnergy / 10000);
+            if (p.solarCollectors.energy > 0) {
+                p.solarCollectors.experience += ((double)p.solarCollectors.energy / 10000);
             }
-            if (p.solarCollectorsExperience > 0) {
-                p.solarCollectorsLevel = (int)Math.Floor(p.solarCollectorsExperience / 10);
+            if (p.solarCollectors.experience > 0) {
+                p.solarCollectors.level = (int)Math.Floor(p.solarCollectors.experience / 10);
             }
             updateText();
         }
@@ -39,29 +39,28 @@ namespace WindowsFormsApp1 {
         }
         private void updateText() {
             txtEnergy.Text = String.Format("Current Energy: {0:0}/{1:0}", Math.Floor(p.energyIdle), Math.Floor(p.energyMax));
-            txtSolarCollectorsEnergyLabel.Text = $"{p.solarCollectorsEnergy}";
-            txtSolarCollectorsLevelLabel.Text = $"{p.solarCollectorsLevel}";
+            txtSolarCollectorsEnergyLabel.Text = $"{p.solarCollectors.level}";
             txtEnergyHoverLabel.Text = ($"Your energy per second is: {p.energyPerTick * Constants._TicksPerSecond:0.00}");
             txtLifeTime.Text = String.Format("{0:hh}:{0:mm}:{0:ss}", DateTime.UtcNow.Subtract(p.startTime));
         }
 
         private void btnSolarCollectorAllocate_Click(object sender, EventArgs e) {
             if (p.energyIdle >= p.inputQuantity) {
-                p.solarCollectorsEnergy += p.inputQuantity;
+                p.solarCollectors.energy += p.inputQuantity;
                 p.energyIdle -= p.inputQuantity;
             } else {
-                p.solarCollectorsEnergy += (int)Math.Floor(p.energyIdle);
+                p.solarCollectors.energy += (int)Math.Floor(p.energyIdle);
                 p.energyIdle -= (int)Math.Floor(p.energyIdle);
             }
         }
 
         private void btnSollarCollectorDeallocate_Click(object sender, EventArgs e) {
-            if (p.solarCollectorsEnergy >= p.inputQuantity) {
-                p.solarCollectorsEnergy -= p.inputQuantity;
+            if (p.solarCollectors.energy >= p.inputQuantity) {
+                p.solarCollectors.energy -= p.inputQuantity;
                 p.energyIdle += p.inputQuantity;
             } else {
-                p.energyIdle += p.solarCollectorsEnergy;
-                p.solarCollectorsEnergy = 0;
+                p.energyIdle += p.solarCollectors.energy;
+                p.solarCollectors.energy = 0;
             }
         }
 
@@ -89,6 +88,10 @@ namespace WindowsFormsApp1 {
 
         private void btnSave_Click(object sender, EventArgs e) {
             new SaveLoad().save(path, filename, p);
+        }
+
+        private void btnPrestige_Click(object sender, EventArgs e) {
+            p.Prestige();
         }
     }
 }

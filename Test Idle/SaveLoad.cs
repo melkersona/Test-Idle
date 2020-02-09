@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace WindowsFormsApp1 {
+namespace TestIdle {
     class SaveLoad {
         public void save(String path, String filename, Player p) {
             System.Xml.Serialization.XmlSerializer writer =
@@ -28,23 +28,26 @@ namespace WindowsFormsApp1 {
             p = (Player)reader.Deserialize(file);
             file.Close();
 
-            double offlineMilliseconds = DateTime.UtcNow.Subtract(p.saveTime).TotalMilliseconds;
+            p.energyPerTick = p.energyPerTickBase + ((double)p.solarCollectors.level * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
+            double offlineSeconds = DateTime.UtcNow.Subtract(p.saveTime).TotalSeconds;
+            double offlineEnergyGain = p.energyPerTick * (offlineSeconds * Constants._TicksPerSecond);
 
-            p.energyPerTick = p.energyPerTickBase + ((double)p.solarCollectorsLevel * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
+
+            
             if (p.energyMax < p.energyCap) {
-                if ((p.energyPerTick * (offlineMilliseconds / 5)) + p.energyCap < p.energyMax) {
-                    p.energyIdle += p.energyPerTick;
-                    p.energyMax += p.energyPerTick;
+                if (offlineEnergyGain + p.energyMax < p.energyCap) {
+                    p.energyIdle += offlineEnergyGain;
+                    p.energyMax += offlineEnergyGain;
                 } else {
                     p.energyIdle += p.energyCap - p.energyMax;
                     p.energyMax = p.energyCap;
                 }
             }
-            if (p.solarCollectorsEnergy > 0) {
-                p.solarCollectorsExperience += ((double)p.solarCollectorsEnergy / 10000);
+            if (p.solarCollectors.energy > 0) {
+                p.solarCollectors.experience += ((double)p.solarCollectors.energy / 10000);
             }
-            if (p.solarCollectorsExperience > 0) {
-                p.solarCollectorsLevel = (int)Math.Floor(p.solarCollectorsExperience / 10);
+            if (p.solarCollectors.experience > 0) {
+                p.solarCollectors.level = (int)Math.Floor(p.solarCollectors.experience / 10);
             }
 
             return p;

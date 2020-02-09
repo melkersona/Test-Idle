@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp1 {
     public class Player {
         public DateTime startTime;
+        public DateTime saveTime;
         public double energyIdle = 100;
         public double energyMax = 100;
         public double energyCap = 1000;

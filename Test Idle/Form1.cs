@@ -6,11 +6,9 @@ namespace WindowsFormsApp1 {
         Player p;
         String path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\TestIdle";
         String filename = "TestIdle.xml";
-        const double _TicksPerSecond = 20;
-        const double _MillisecondsPerSecond = 1000;
         public Form1() {
             InitializeComponent();
-            timerTick.Interval = (int) (1.0 / _TicksPerSecond * _MillisecondsPerSecond);
+            timerTick.Interval = (int) (1.0 / Constants._TicksPerSecond * Constants._MillisecondsPerSecond);
             try {
                 System.IO.Directory.CreateDirectory(path);
             } catch {}
@@ -22,7 +20,7 @@ namespace WindowsFormsApp1 {
         }
 
         private void timer1_Tick(object sender, EventArgs e) {
-            p.energyPerTick = p.energyPerTickBase + ((double)p.solarCollectorsLevel * 2.5 * _TicksPerSecond / _MillisecondsPerSecond);
+            p.energyPerTick = p.energyPerTickBase + ((double)p.solarCollectorsLevel * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
             if (p.energyMax < p.energyCap) {
                 p.energyIdle += p.energyPerTick;
                 p.energyMax += p.energyPerTick;
@@ -43,7 +41,7 @@ namespace WindowsFormsApp1 {
             txtEnergy.Text = String.Format("Current Energy: {0:0}/{1:0}", Math.Floor(p.energyIdle), Math.Floor(p.energyMax));
             txtSolarCollectorsEnergyLabel.Text = $"{p.solarCollectorsEnergy}";
             txtSolarCollectorsLevelLabel.Text = $"{p.solarCollectorsLevel}";
-            txtEnergyHoverLabel.Text = ($"Your energy per second is: {p.energyPerTick * _TicksPerSecond:0.00}");
+            txtEnergyHoverLabel.Text = ($"Your energy per second is: {p.energyPerTick * Constants._TicksPerSecond:0.00}");
             txtLifeTime.Text = String.Format("{0:hh}:{0:mm}:{0:ss}", DateTime.UtcNow.Subtract(p.startTime));
         }
 

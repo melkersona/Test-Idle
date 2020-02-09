@@ -45,11 +45,11 @@
             this.txtComonentNameLabel = new System.Windows.Forms.TextBox();
             this.txtEnergyHoverLabel = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtLifeTimeLabel = new System.Windows.Forms.TextBox();
             this.txtLifeTime = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupboxStats = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtLifeTimeLabel = new System.Windows.Forms.TextBox();
             this.timerAutoSave = new System.Windows.Forms.Timer(this.components);
             this.grpboxComponents.SuspendLayout();
             this.panelSolarCollector.SuspendLayout();
@@ -70,7 +70,7 @@
             this.txtEnergy.Location = new System.Drawing.Point(6, 12);
             this.txtEnergy.Name = "txtEnergy";
             this.txtEnergy.ReadOnly = true;
-            this.txtEnergy.Size = new System.Drawing.Size(119, 13);
+            this.txtEnergy.Size = new System.Drawing.Size(149, 13);
             this.txtEnergy.TabIndex = 5;
             this.txtEnergy.TabStop = false;
             this.txtEnergy.Text = "Current Energy: 100/100";
@@ -254,6 +254,19 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
+            // txtLifeTimeLabel
+            // 
+            this.txtLifeTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLifeTimeLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLifeTimeLabel.Location = new System.Drawing.Point(14, 306);
+            this.txtLifeTimeLabel.Name = "txtLifeTimeLabel";
+            this.txtLifeTimeLabel.ReadOnly = true;
+            this.txtLifeTimeLabel.Size = new System.Drawing.Size(63, 13);
+            this.txtLifeTimeLabel.TabIndex = 2;
+            this.txtLifeTimeLabel.TabStop = false;
+            this.txtLifeTimeLabel.Text = "Current Time:";
+            // 
             // txtLifeTime
             // 
             this.txtLifeTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -282,7 +295,7 @@
             this.groupboxStats.Controls.Add(this.txtEnergy);
             this.groupboxStats.Location = new System.Drawing.Point(12, 12);
             this.groupboxStats.Name = "groupboxStats";
-            this.groupboxStats.Size = new System.Drawing.Size(131, 59);
+            this.groupboxStats.Size = new System.Drawing.Size(161, 59);
             this.groupboxStats.TabIndex = 18;
             this.groupboxStats.TabStop = false;
             // 
@@ -294,19 +307,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(83, 60);
             this.panel1.TabIndex = 19;
-            // 
-            // txtLifeTimeLabel
-            // 
-            this.txtLifeTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLifeTimeLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLifeTimeLabel.Location = new System.Drawing.Point(14, 306);
-            this.txtLifeTimeLabel.Name = "txtLifeTimeLabel";
-            this.txtLifeTimeLabel.ReadOnly = true;
-            this.txtLifeTimeLabel.Size = new System.Drawing.Size(63, 13);
-            this.txtLifeTimeLabel.TabIndex = 2;
-            this.txtLifeTimeLabel.TabStop = false;
-            this.txtLifeTimeLabel.Text = "Current Time:";
             // 
             // timerAutoSave
             // 

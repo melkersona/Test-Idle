@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TestIdle {
-    public class Component {
+    public class Organ {
         public String name;
         public double experience;
         public double level;

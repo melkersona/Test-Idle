@@ -6,30 +6,33 @@ namespace TestIdle {
         Player p;
         String path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\TestIdle";
         String filename = "TestIdle.xml";
+
         public Form1() {
             InitializeComponent();
-            timerTick.Interval = (int) (1.0 / Constants._TicksPerSecond * Constants._MillisecondsPerSecond);
+            timerTick.Interval = (int)(1.0 / Constants._TicksPerSecond * Constants._MillisecondsPerSecond);
             try {
                 System.IO.Directory.CreateDirectory(path);
-            } catch {}
+            } catch { }
             try {
                 p = new SaveLoad().load(path, filename);
             } catch {
                 p = new Player();
             }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e) {
-            p.energyPerTick = p.energyPerTickBase + ((double)p.solarCollectors.level * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
+            //p.energyPerTick = p.energyPerTickBase + ((double)p.leaves.level * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
+            p.height += p.leaves.level / Constants._TicksPerSecond;
             if (p.energyMax < p.energyCap) {
                 p.energyIdle += p.energyPerTick;
                 p.energyMax += p.energyPerTick;
             }
-            if (p.solarCollectors.energy > 0) {
-                p.solarCollectors.experience += ((double)p.solarCollectors.energy / 10000);
+            if (p.leaves.energy > 0) {
+                p.leaves.experience += ((double)p.leaves.energy / 100);
             }
-            if (p.solarCollectors.experience > 0) {
-                p.solarCollectors.level = (int)Math.Floor(p.solarCollectors.experience / 10);
+            if (p.leaves.experience > 0) {
+                p.leaves.level = (int)Math.Floor(p.leaves.experience / 10);
             }
             updateText();
         }
@@ -39,28 +42,32 @@ namespace TestIdle {
         }
         private void updateText() {
             txtEnergy.Text = String.Format("Current Energy: {0:0}/{1:0}", Math.Floor(p.energyIdle), Math.Floor(p.energyMax));
-            txtSolarCollectorsEnergyLabel.Text = $"{p.solarCollectors.level}";
-            txtEnergyHoverLabel.Text = ($"Your energy per second is: {p.energyPerTick * Constants._TicksPerSecond:0.00}");
+            txtSolarCollectorsEnergyLabel.Text = $"{p.leaves.energy}";
+            txtSolarCollectorsLevelLabel.Text = $"{p.leaves.level}";
+            txtEnergyHoverLabel.Text = ($"Your energy per second is: {p.energyPerTick * Constants._TicksPerSecond:0.00}\r\n" +
+                $"Your energy cap for this prestige is: {p.energyCap}");
             txtLifeTime.Text = String.Format("{0:hh}:{0:mm}:{0:ss}", DateTime.UtcNow.Subtract(p.startTime));
+            txtInput.Text = $"{p.inputQuantity}";
+            txtHeight.Text = $"Height: {p.height:0.00}";
         }
 
         private void btnSolarCollectorAllocate_Click(object sender, EventArgs e) {
             if (p.energyIdle >= p.inputQuantity) {
-                p.solarCollectors.energy += p.inputQuantity;
+                p.leaves.energy += p.inputQuantity;
                 p.energyIdle -= p.inputQuantity;
             } else {
-                p.solarCollectors.energy += (int)Math.Floor(p.energyIdle);
+                p.leaves.energy += (int)Math.Floor(p.energyIdle);
                 p.energyIdle -= (int)Math.Floor(p.energyIdle);
             }
         }
 
         private void btnSollarCollectorDeallocate_Click(object sender, EventArgs e) {
-            if (p.solarCollectors.energy >= p.inputQuantity) {
-                p.solarCollectors.energy -= p.inputQuantity;
+            if (p.leaves.energy >= p.inputQuantity) {
+                p.leaves.energy -= p.inputQuantity;
                 p.energyIdle += p.inputQuantity;
             } else {
-                p.energyIdle += p.solarCollectors.energy;
-                p.solarCollectors.energy = 0;
+                p.energyIdle += p.leaves.energy;
+                p.leaves.energy = 0;
             }
         }
 

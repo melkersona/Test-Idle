@@ -14,7 +14,8 @@ namespace TestIdle {
         public double energyPerTickBase = 0.1;
         public double energyPerTick;
         public int inputQuantity = 1;
-        public Component solarCollectors = new Component();
+        public double height;
+        public Organ leaves = new Organ();
 
         public Player() {
             resetStats();
@@ -30,10 +31,10 @@ namespace TestIdle {
 
         private void resetStats() {
             startTime = DateTime.UtcNow;
-            solarCollectors.name = "Solar Collectors";
-            solarCollectors.level = 0;
-            solarCollectors.energy = 0;
-            solarCollectors.experience = 0;
+            leaves.name = "Leaves";
+            leaves.level = 0;
+            leaves.energy = 0;
+            leaves.experience = 0;
         }
     }
 }

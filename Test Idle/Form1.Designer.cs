@@ -45,13 +45,14 @@
             this.txtComonentNameLabel = new System.Windows.Forms.TextBox();
             this.txtEnergyHoverLabel = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPrestige = new System.Windows.Forms.Button();
             this.txtLifeTimeLabel = new System.Windows.Forms.TextBox();
             this.txtLifeTime = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupboxStats = new System.Windows.Forms.GroupBox();
+            this.txtHeight = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timerAutoSave = new System.Windows.Forms.Timer(this.components);
-            this.btnPrestige = new System.Windows.Forms.Button();
             this.grpboxComponents.SuspendLayout();
             this.panelSolarCollector.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -90,7 +91,7 @@
             this.txtSollarCollectorsComponentLabel.Size = new System.Drawing.Size(84, 13);
             this.txtSollarCollectorsComponentLabel.TabIndex = 6;
             this.txtSollarCollectorsComponentLabel.TabStop = false;
-            this.txtSollarCollectorsComponentLabel.Text = "Solar Collectors";
+            this.txtSollarCollectorsComponentLabel.Text = "Leaves";
             // 
             // btnSollarCollectorDeallocate
             // 
@@ -198,7 +199,7 @@
             // 
             this.txtComponentEnergyLabel.BackColor = System.Drawing.SystemColors.Control;
             this.txtComponentEnergyLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtComponentEnergyLabel.Location = new System.Drawing.Point(154, 19);
+            this.txtComponentEnergyLabel.Location = new System.Drawing.Point(170, 19);
             this.txtComponentEnergyLabel.Name = "txtComponentEnergyLabel";
             this.txtComponentEnergyLabel.ReadOnly = true;
             this.txtComponentEnergyLabel.Size = new System.Drawing.Size(84, 13);
@@ -232,14 +233,14 @@
             // 
             // txtEnergyHoverLabel
             // 
-            this.txtEnergyHoverLabel.Location = new System.Drawing.Point(492, 77);
+            this.txtEnergyHoverLabel.Location = new System.Drawing.Point(382, 77);
             this.txtEnergyHoverLabel.Multiline = true;
             this.txtEnergyHoverLabel.Name = "txtEnergyHoverLabel";
             this.txtEnergyHoverLabel.ReadOnly = true;
-            this.txtEnergyHoverLabel.Size = new System.Drawing.Size(100, 42);
+            this.txtEnergyHoverLabel.Size = new System.Drawing.Size(210, 52);
             this.txtEnergyHoverLabel.TabIndex = 16;
             this.txtEnergyHoverLabel.TabStop = false;
-            this.txtEnergyHoverLabel.Text = "Your energy per second is: 0";
+            this.txtEnergyHoverLabel.Text = "Your energy per second is: 0\r\nYour energy cap this prestige is: 00000";
             this.txtEnergyHoverLabel.Visible = false;
             // 
             // groupBox1
@@ -255,6 +256,16 @@
             this.groupBox1.Size = new System.Drawing.Size(92, 381);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
+            // 
+            // btnPrestige
+            // 
+            this.btnPrestige.Location = new System.Drawing.Point(8, 277);
+            this.btnPrestige.Name = "btnPrestige";
+            this.btnPrestige.Size = new System.Drawing.Size(77, 23);
+            this.btnPrestige.TabIndex = 3;
+            this.btnPrestige.Text = "RESET";
+            this.btnPrestige.UseVisualStyleBackColor = true;
+            this.btnPrestige.Click += new System.EventHandler(this.btnPrestige_Click);
             // 
             // txtLifeTimeLabel
             // 
@@ -294,12 +305,25 @@
             // 
             // groupboxStats
             // 
+            this.groupboxStats.Controls.Add(this.txtHeight);
             this.groupboxStats.Controls.Add(this.txtEnergy);
             this.groupboxStats.Location = new System.Drawing.Point(12, 12);
             this.groupboxStats.Name = "groupboxStats";
-            this.groupboxStats.Size = new System.Drawing.Size(161, 59);
+            this.groupboxStats.Size = new System.Drawing.Size(161, 97);
             this.groupboxStats.TabIndex = 18;
             this.groupboxStats.TabStop = false;
+            this.groupboxStats.Text = "Stats";
+            // 
+            // txtHeight
+            // 
+            this.txtHeight.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtHeight.Location = new System.Drawing.Point(6, 31);
+            this.txtHeight.Name = "txtHeight";
+            this.txtHeight.ReadOnly = true;
+            this.txtHeight.Size = new System.Drawing.Size(149, 13);
+            this.txtHeight.TabIndex = 6;
+            this.txtHeight.TabStop = false;
+            this.txtHeight.Text = "Height: 000000";
             // 
             // panel1
             // 
@@ -315,16 +339,6 @@
             this.timerAutoSave.Enabled = true;
             this.timerAutoSave.Interval = 30000;
             this.timerAutoSave.Tick += new System.EventHandler(this.timerAutoSave_Tick);
-            // 
-            // btnPrestige
-            // 
-            this.btnPrestige.Location = new System.Drawing.Point(8, 277);
-            this.btnPrestige.Name = "btnPrestige";
-            this.btnPrestige.Size = new System.Drawing.Size(77, 23);
-            this.btnPrestige.TabIndex = 3;
-            this.btnPrestige.Text = "RESET";
-            this.btnPrestige.UseVisualStyleBackColor = true;
-            this.btnPrestige.Click += new System.EventHandler(this.btnPrestige_Click);
             // 
             // Form1
             // 
@@ -377,6 +391,7 @@
         private System.Windows.Forms.TextBox txtLifeTimeLabel;
         private System.Windows.Forms.Timer timerAutoSave;
         private System.Windows.Forms.Button btnPrestige;
+        private System.Windows.Forms.TextBox txtHeight;
     }
 }
 

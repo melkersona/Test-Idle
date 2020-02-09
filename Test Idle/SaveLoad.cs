@@ -28,10 +28,9 @@ namespace TestIdle {
             p = (Player)reader.Deserialize(file);
             file.Close();
 
-            p.energyPerTick = p.energyPerTickBase + ((double)p.solarCollectors.level * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
+            p.energyPerTick = p.energyPerTickBase + ((double)p.leaves.level * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
             double offlineSeconds = DateTime.UtcNow.Subtract(p.saveTime).TotalSeconds;
             double offlineEnergyGain = p.energyPerTick * (offlineSeconds * Constants._TicksPerSecond);
-
 
             
             if (p.energyMax < p.energyCap) {
@@ -43,12 +42,14 @@ namespace TestIdle {
                     p.energyMax = p.energyCap;
                 }
             }
-            if (p.solarCollectors.energy > 0) {
-                p.solarCollectors.experience += ((double)p.solarCollectors.energy / 10000);
-            }
-            if (p.solarCollectors.experience > 0) {
-                p.solarCollectors.level = (int)Math.Floor(p.solarCollectors.experience / 10);
-            }
+
+            // Make this code approximate progress made while offline
+            //if (p.solarCollectors.energy > 0) {
+            //    p.solarCollectors.experience += ((double)p.solarCollectors.energy / 10000);
+            //}
+            //if (p.solarCollectors.experience > 0) {
+            //    p.solarCollectors.level = (int)Math.Floor(p.solarCollectors.experience / 10);
+            //}
 
             return p;
         }

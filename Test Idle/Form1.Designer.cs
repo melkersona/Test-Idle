@@ -146,7 +146,7 @@
             this.txtSolarCollectorsEnergyLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtSolarCollectorsEnergyLabel.BackColor = System.Drawing.SystemColors.Control;
             this.txtSolarCollectorsEnergyLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSolarCollectorsEnergyLabel.Location = new System.Drawing.Point(148, 9);
+            this.txtSolarCollectorsEnergyLabel.Location = new System.Drawing.Point(164, 9);
             this.txtSolarCollectorsEnergyLabel.Name = "txtSolarCollectorsEnergyLabel";
             this.txtSolarCollectorsEnergyLabel.ReadOnly = true;
             this.txtSolarCollectorsEnergyLabel.Size = new System.Drawing.Size(26, 13);

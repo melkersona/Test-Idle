@@ -10,5 +10,12 @@ namespace TestIdle {
         public double experience;
         public double level;
         public double energy;
+
+        public void prestige()
+        {
+            this.experience = 0;
+            this.level = 0;
+            this.energy = 0;
+        }
     }
 }

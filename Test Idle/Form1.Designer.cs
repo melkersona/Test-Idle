@@ -31,31 +31,41 @@
             this.components = new System.ComponentModel.Container();
             this.timerTick = new System.Windows.Forms.Timer(this.components);
             this.txtEnergy = new System.Windows.Forms.TextBox();
-            this.txtSollarCollectorsComponentLabel = new System.Windows.Forms.TextBox();
-            this.btnSollarCollectorDeallocate = new System.Windows.Forms.Button();
-            this.btnSolarCollectorAllocate = new System.Windows.Forms.Button();
+            this.txtLeavesOrgan = new System.Windows.Forms.TextBox();
+            this.btnLeavesDeallocate = new System.Windows.Forms.Button();
+            this.btnLeavesAllocate = new System.Windows.Forms.Button();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.txtInputLabel = new System.Windows.Forms.TextBox();
-            this.txtSolarCollectorsEnergyLabel = new System.Windows.Forms.TextBox();
-            this.txtSolarCollectorsLevelLabel = new System.Windows.Forms.TextBox();
-            this.grpboxComponents = new System.Windows.Forms.GroupBox();
-            this.panelSolarCollector = new System.Windows.Forms.Panel();
+            this.txtLeavesEnergy = new System.Windows.Forms.TextBox();
+            this.txtLeavesLevel = new System.Windows.Forms.TextBox();
+            this.grpboxOrgans = new System.Windows.Forms.GroupBox();
+            this.panelRoots = new System.Windows.Forms.Panel();
+            this.txtRootsEnergy = new System.Windows.Forms.TextBox();
+            this.btnRootsAllocate = new System.Windows.Forms.Button();
+            this.btnRootsDeallocate = new System.Windows.Forms.Button();
+            this.txtRootsLevel = new System.Windows.Forms.TextBox();
+            this.txtRootsOrgan = new System.Windows.Forms.TextBox();
+            this.panelLeaves = new System.Windows.Forms.Panel();
             this.txtComponentEnergyLabel = new System.Windows.Forms.TextBox();
             this.txtComponentLevelLabel = new System.Windows.Forms.TextBox();
             this.txtComonentNameLabel = new System.Windows.Forms.TextBox();
             this.txtEnergyHoverLabel = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupMetabuttons = new System.Windows.Forms.GroupBox();
             this.btnPrestige = new System.Windows.Forms.Button();
             this.txtLifeTimeLabel = new System.Windows.Forms.TextBox();
             this.txtLifeTime = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupboxStats = new System.Windows.Forms.GroupBox();
-            this.txtHeight = new System.Windows.Forms.TextBox();
+            this.txtMinerals = new System.Windows.Forms.TextBox();
+            this.txtWater = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timerAutoSave = new System.Windows.Forms.Timer(this.components);
-            this.grpboxComponents.SuspendLayout();
-            this.panelSolarCollector.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.btnOrgansView = new System.Windows.Forms.Button();
+            this.btnHeightView = new System.Windows.Forms.Button();
+            this.grpboxOrgans.SuspendLayout();
+            this.panelRoots.SuspendLayout();
+            this.panelLeaves.SuspendLayout();
+            this.groupMetabuttons.SuspendLayout();
             this.groupboxStats.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -80,44 +90,44 @@
             this.txtEnergy.MouseLeave += new System.EventHandler(this.txtEnergy_MouseLeave);
             this.txtEnergy.MouseMove += new System.Windows.Forms.MouseEventHandler(this.txtEnergy_MouseMove);
             // 
-            // txtSollarCollectorsComponentLabel
+            // txtLeavesOrgan
             // 
-            this.txtSollarCollectorsComponentLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSollarCollectorsComponentLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.txtSollarCollectorsComponentLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSollarCollectorsComponentLabel.Location = new System.Drawing.Point(8, 9);
-            this.txtSollarCollectorsComponentLabel.Name = "txtSollarCollectorsComponentLabel";
-            this.txtSollarCollectorsComponentLabel.ReadOnly = true;
-            this.txtSollarCollectorsComponentLabel.Size = new System.Drawing.Size(84, 13);
-            this.txtSollarCollectorsComponentLabel.TabIndex = 6;
-            this.txtSollarCollectorsComponentLabel.TabStop = false;
-            this.txtSollarCollectorsComponentLabel.Text = "Leaves";
+            this.txtLeavesOrgan.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtLeavesOrgan.BackColor = System.Drawing.SystemColors.Control;
+            this.txtLeavesOrgan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLeavesOrgan.Location = new System.Drawing.Point(8, 9);
+            this.txtLeavesOrgan.Name = "txtLeavesOrgan";
+            this.txtLeavesOrgan.ReadOnly = true;
+            this.txtLeavesOrgan.Size = new System.Drawing.Size(84, 13);
+            this.txtLeavesOrgan.TabIndex = 6;
+            this.txtLeavesOrgan.TabStop = false;
+            this.txtLeavesOrgan.Text = "Leaves";
             // 
-            // btnSollarCollectorDeallocate
+            // btnLeavesDeallocate
             // 
-            this.btnSollarCollectorDeallocate.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnSollarCollectorDeallocate.AutoSize = true;
-            this.btnSollarCollectorDeallocate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSollarCollectorDeallocate.Location = new System.Drawing.Point(279, 4);
-            this.btnSollarCollectorDeallocate.Name = "btnSollarCollectorDeallocate";
-            this.btnSollarCollectorDeallocate.Size = new System.Drawing.Size(20, 23);
-            this.btnSollarCollectorDeallocate.TabIndex = 7;
-            this.btnSollarCollectorDeallocate.Text = "-";
-            this.btnSollarCollectorDeallocate.UseVisualStyleBackColor = true;
-            this.btnSollarCollectorDeallocate.Click += new System.EventHandler(this.btnSollarCollectorDeallocate_Click);
+            this.btnLeavesDeallocate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnLeavesDeallocate.AutoSize = true;
+            this.btnLeavesDeallocate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLeavesDeallocate.Location = new System.Drawing.Point(279, 4);
+            this.btnLeavesDeallocate.Name = "btnLeavesDeallocate";
+            this.btnLeavesDeallocate.Size = new System.Drawing.Size(20, 23);
+            this.btnLeavesDeallocate.TabIndex = 7;
+            this.btnLeavesDeallocate.Text = "-";
+            this.btnLeavesDeallocate.UseVisualStyleBackColor = true;
+            this.btnLeavesDeallocate.Click += new System.EventHandler(this.btnLeavesDeallocate_Click);
             // 
-            // btnSolarCollectorAllocate
+            // btnLeavesAllocate
             // 
-            this.btnSolarCollectorAllocate.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnSolarCollectorAllocate.AutoSize = true;
-            this.btnSolarCollectorAllocate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSolarCollectorAllocate.Location = new System.Drawing.Point(253, 4);
-            this.btnSolarCollectorAllocate.Name = "btnSolarCollectorAllocate";
-            this.btnSolarCollectorAllocate.Size = new System.Drawing.Size(23, 23);
-            this.btnSolarCollectorAllocate.TabIndex = 8;
-            this.btnSolarCollectorAllocate.Text = "+";
-            this.btnSolarCollectorAllocate.UseVisualStyleBackColor = true;
-            this.btnSolarCollectorAllocate.Click += new System.EventHandler(this.btnSolarCollectorAllocate_Click);
+            this.btnLeavesAllocate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnLeavesAllocate.AutoSize = true;
+            this.btnLeavesAllocate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLeavesAllocate.Location = new System.Drawing.Point(253, 4);
+            this.btnLeavesAllocate.Name = "btnLeavesAllocate";
+            this.btnLeavesAllocate.Size = new System.Drawing.Size(23, 23);
+            this.btnLeavesAllocate.TabIndex = 8;
+            this.btnLeavesAllocate.Text = "+";
+            this.btnLeavesAllocate.UseVisualStyleBackColor = true;
+            this.btnLeavesAllocate.Click += new System.EventHandler(this.btnLeavesAllocate_Click);
             // 
             // txtInput
             // 
@@ -141,59 +151,140 @@
             this.txtInputLabel.TabStop = false;
             this.txtInputLabel.Text = "Input:";
             // 
-            // txtSolarCollectorsEnergyLabel
+            // txtLeavesEnergy
             // 
-            this.txtSolarCollectorsEnergyLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSolarCollectorsEnergyLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.txtSolarCollectorsEnergyLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSolarCollectorsEnergyLabel.Location = new System.Drawing.Point(164, 9);
-            this.txtSolarCollectorsEnergyLabel.Name = "txtSolarCollectorsEnergyLabel";
-            this.txtSolarCollectorsEnergyLabel.ReadOnly = true;
-            this.txtSolarCollectorsEnergyLabel.Size = new System.Drawing.Size(26, 13);
-            this.txtSolarCollectorsEnergyLabel.TabIndex = 14;
-            this.txtSolarCollectorsEnergyLabel.TabStop = false;
-            this.txtSolarCollectorsEnergyLabel.Text = "0";
+            this.txtLeavesEnergy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtLeavesEnergy.BackColor = System.Drawing.SystemColors.Control;
+            this.txtLeavesEnergy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLeavesEnergy.Location = new System.Drawing.Point(164, 9);
+            this.txtLeavesEnergy.Name = "txtLeavesEnergy";
+            this.txtLeavesEnergy.ReadOnly = true;
+            this.txtLeavesEnergy.Size = new System.Drawing.Size(26, 13);
+            this.txtLeavesEnergy.TabIndex = 14;
+            this.txtLeavesEnergy.TabStop = false;
+            this.txtLeavesEnergy.Text = "0";
             // 
-            // txtSolarCollectorsLevelLabel
+            // txtLeavesLevel
             // 
-            this.txtSolarCollectorsLevelLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSolarCollectorsLevelLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.txtSolarCollectorsLevelLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSolarCollectorsLevelLabel.Location = new System.Drawing.Point(98, 9);
-            this.txtSolarCollectorsLevelLabel.Name = "txtSolarCollectorsLevelLabel";
-            this.txtSolarCollectorsLevelLabel.ReadOnly = true;
-            this.txtSolarCollectorsLevelLabel.Size = new System.Drawing.Size(26, 13);
-            this.txtSolarCollectorsLevelLabel.TabIndex = 13;
-            this.txtSolarCollectorsLevelLabel.TabStop = false;
-            this.txtSolarCollectorsLevelLabel.Text = "0";
+            this.txtLeavesLevel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtLeavesLevel.BackColor = System.Drawing.SystemColors.Control;
+            this.txtLeavesLevel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLeavesLevel.Location = new System.Drawing.Point(98, 9);
+            this.txtLeavesLevel.Name = "txtLeavesLevel";
+            this.txtLeavesLevel.ReadOnly = true;
+            this.txtLeavesLevel.Size = new System.Drawing.Size(26, 13);
+            this.txtLeavesLevel.TabIndex = 13;
+            this.txtLeavesLevel.TabStop = false;
+            this.txtLeavesLevel.Text = "0";
             // 
-            // grpboxComponents
+            // grpboxOrgans
             // 
-            this.grpboxComponents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpboxComponents.Controls.Add(this.panelSolarCollector);
-            this.grpboxComponents.Controls.Add(this.txtComponentEnergyLabel);
-            this.grpboxComponents.Controls.Add(this.txtComponentLevelLabel);
-            this.grpboxComponents.Controls.Add(this.txtComonentNameLabel);
-            this.grpboxComponents.Location = new System.Drawing.Point(278, 147);
-            this.grpboxComponents.Name = "grpboxComponents";
-            this.grpboxComponents.Size = new System.Drawing.Size(314, 381);
-            this.grpboxComponents.TabIndex = 15;
-            this.grpboxComponents.TabStop = false;
+            this.grpboxOrgans.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpboxOrgans.Controls.Add(this.panelRoots);
+            this.grpboxOrgans.Controls.Add(this.panelLeaves);
+            this.grpboxOrgans.Controls.Add(this.txtComponentEnergyLabel);
+            this.grpboxOrgans.Controls.Add(this.txtComponentLevelLabel);
+            this.grpboxOrgans.Controls.Add(this.txtComonentNameLabel);
+            this.grpboxOrgans.Location = new System.Drawing.Point(278, 147);
+            this.grpboxOrgans.Name = "grpboxOrgans";
+            this.grpboxOrgans.Size = new System.Drawing.Size(314, 381);
+            this.grpboxOrgans.TabIndex = 15;
+            this.grpboxOrgans.TabStop = false;
             // 
-            // panelSolarCollector
+            // panelRoots
             // 
-            this.panelSolarCollector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelRoots.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSolarCollector.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelSolarCollector.Controls.Add(this.txtSolarCollectorsEnergyLabel);
-            this.panelSolarCollector.Controls.Add(this.btnSolarCollectorAllocate);
-            this.panelSolarCollector.Controls.Add(this.btnSollarCollectorDeallocate);
-            this.panelSolarCollector.Controls.Add(this.txtSolarCollectorsLevelLabel);
-            this.panelSolarCollector.Controls.Add(this.txtSollarCollectorsComponentLabel);
-            this.panelSolarCollector.Location = new System.Drawing.Point(6, 44);
-            this.panelSolarCollector.Name = "panelSolarCollector";
-            this.panelSolarCollector.Size = new System.Drawing.Size(302, 30);
-            this.panelSolarCollector.TabIndex = 16;
+            this.panelRoots.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelRoots.Controls.Add(this.txtRootsEnergy);
+            this.panelRoots.Controls.Add(this.btnRootsAllocate);
+            this.panelRoots.Controls.Add(this.btnRootsDeallocate);
+            this.panelRoots.Controls.Add(this.txtRootsLevel);
+            this.panelRoots.Controls.Add(this.txtRootsOrgan);
+            this.panelRoots.Location = new System.Drawing.Point(6, 77);
+            this.panelRoots.Name = "panelRoots";
+            this.panelRoots.Size = new System.Drawing.Size(302, 30);
+            this.panelRoots.TabIndex = 17;
+            // 
+            // txtRootsEnergy
+            // 
+            this.txtRootsEnergy.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtRootsEnergy.BackColor = System.Drawing.SystemColors.Control;
+            this.txtRootsEnergy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRootsEnergy.Location = new System.Drawing.Point(164, 9);
+            this.txtRootsEnergy.Name = "txtRootsEnergy";
+            this.txtRootsEnergy.ReadOnly = true;
+            this.txtRootsEnergy.Size = new System.Drawing.Size(26, 13);
+            this.txtRootsEnergy.TabIndex = 14;
+            this.txtRootsEnergy.TabStop = false;
+            this.txtRootsEnergy.Text = "0";
+            // 
+            // btnRootsAllocate
+            // 
+            this.btnRootsAllocate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnRootsAllocate.AutoSize = true;
+            this.btnRootsAllocate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRootsAllocate.Location = new System.Drawing.Point(253, 4);
+            this.btnRootsAllocate.Name = "btnRootsAllocate";
+            this.btnRootsAllocate.Size = new System.Drawing.Size(23, 23);
+            this.btnRootsAllocate.TabIndex = 8;
+            this.btnRootsAllocate.Text = "+";
+            this.btnRootsAllocate.UseVisualStyleBackColor = true;
+            this.btnRootsAllocate.Click += new System.EventHandler(this.btnRootsAllocate_Click);
+            // 
+            // btnRootsDeallocate
+            // 
+            this.btnRootsDeallocate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnRootsDeallocate.AutoSize = true;
+            this.btnRootsDeallocate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRootsDeallocate.Location = new System.Drawing.Point(279, 4);
+            this.btnRootsDeallocate.Name = "btnRootsDeallocate";
+            this.btnRootsDeallocate.Size = new System.Drawing.Size(20, 23);
+            this.btnRootsDeallocate.TabIndex = 7;
+            this.btnRootsDeallocate.Text = "-";
+            this.btnRootsDeallocate.UseVisualStyleBackColor = true;
+            this.btnRootsDeallocate.Click += new System.EventHandler(this.btnRootsDeallocate_Click);
+            // 
+            // txtRootsLevel
+            // 
+            this.txtRootsLevel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtRootsLevel.BackColor = System.Drawing.SystemColors.Control;
+            this.txtRootsLevel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRootsLevel.Location = new System.Drawing.Point(98, 9);
+            this.txtRootsLevel.Name = "txtRootsLevel";
+            this.txtRootsLevel.ReadOnly = true;
+            this.txtRootsLevel.Size = new System.Drawing.Size(26, 13);
+            this.txtRootsLevel.TabIndex = 13;
+            this.txtRootsLevel.TabStop = false;
+            this.txtRootsLevel.Text = "0";
+            // 
+            // txtRootsOrgan
+            // 
+            this.txtRootsOrgan.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtRootsOrgan.BackColor = System.Drawing.SystemColors.Control;
+            this.txtRootsOrgan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRootsOrgan.Location = new System.Drawing.Point(8, 9);
+            this.txtRootsOrgan.Name = "txtRootsOrgan";
+            this.txtRootsOrgan.ReadOnly = true;
+            this.txtRootsOrgan.Size = new System.Drawing.Size(84, 13);
+            this.txtRootsOrgan.TabIndex = 6;
+            this.txtRootsOrgan.TabStop = false;
+            this.txtRootsOrgan.Text = "Roots";
+            // 
+            // panelLeaves
+            // 
+            this.panelLeaves.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelLeaves.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelLeaves.Controls.Add(this.txtLeavesEnergy);
+            this.panelLeaves.Controls.Add(this.btnLeavesAllocate);
+            this.panelLeaves.Controls.Add(this.btnLeavesDeallocate);
+            this.panelLeaves.Controls.Add(this.txtLeavesLevel);
+            this.panelLeaves.Controls.Add(this.txtLeavesOrgan);
+            this.panelLeaves.Location = new System.Drawing.Point(6, 44);
+            this.panelLeaves.Name = "panelLeaves";
+            this.panelLeaves.Size = new System.Drawing.Size(302, 30);
+            this.panelLeaves.TabIndex = 16;
             // 
             // txtComponentEnergyLabel
             // 
@@ -229,7 +320,7 @@
             this.txtComonentNameLabel.Size = new System.Drawing.Size(84, 13);
             this.txtComonentNameLabel.TabIndex = 15;
             this.txtComonentNameLabel.TabStop = false;
-            this.txtComonentNameLabel.Text = "Component";
+            this.txtComonentNameLabel.Text = "Organ";
             // 
             // txtEnergyHoverLabel
             // 
@@ -243,19 +334,21 @@
             this.txtEnergyHoverLabel.Text = "Your energy per second is: 0\r\nYour energy cap this prestige is: 00000";
             this.txtEnergyHoverLabel.Visible = false;
             // 
-            // groupBox1
+            // groupMetabuttons
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox1.Controls.Add(this.btnPrestige);
-            this.groupBox1.Controls.Add(this.txtLifeTimeLabel);
-            this.groupBox1.Controls.Add(this.txtLifeTime);
-            this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Location = new System.Drawing.Point(12, 147);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(92, 381);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
+            this.groupMetabuttons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupMetabuttons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupMetabuttons.Controls.Add(this.btnHeightView);
+            this.groupMetabuttons.Controls.Add(this.btnOrgansView);
+            this.groupMetabuttons.Controls.Add(this.btnPrestige);
+            this.groupMetabuttons.Controls.Add(this.txtLifeTimeLabel);
+            this.groupMetabuttons.Controls.Add(this.txtLifeTime);
+            this.groupMetabuttons.Controls.Add(this.btnSave);
+            this.groupMetabuttons.Location = new System.Drawing.Point(12, 147);
+            this.groupMetabuttons.Name = "groupMetabuttons";
+            this.groupMetabuttons.Size = new System.Drawing.Size(92, 381);
+            this.groupMetabuttons.TabIndex = 17;
+            this.groupMetabuttons.TabStop = false;
             // 
             // btnPrestige
             // 
@@ -305,7 +398,8 @@
             // 
             // groupboxStats
             // 
-            this.groupboxStats.Controls.Add(this.txtHeight);
+            this.groupboxStats.Controls.Add(this.txtMinerals);
+            this.groupboxStats.Controls.Add(this.txtWater);
             this.groupboxStats.Controls.Add(this.txtEnergy);
             this.groupboxStats.Location = new System.Drawing.Point(12, 12);
             this.groupboxStats.Name = "groupboxStats";
@@ -314,16 +408,27 @@
             this.groupboxStats.TabStop = false;
             this.groupboxStats.Text = "Stats";
             // 
-            // txtHeight
+            // txtMinerals
             // 
-            this.txtHeight.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtHeight.Location = new System.Drawing.Point(6, 31);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.ReadOnly = true;
-            this.txtHeight.Size = new System.Drawing.Size(149, 13);
-            this.txtHeight.TabIndex = 6;
-            this.txtHeight.TabStop = false;
-            this.txtHeight.Text = "Height: 000000";
+            this.txtMinerals.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMinerals.Location = new System.Drawing.Point(6, 50);
+            this.txtMinerals.Name = "txtMinerals";
+            this.txtMinerals.ReadOnly = true;
+            this.txtMinerals.Size = new System.Drawing.Size(149, 13);
+            this.txtMinerals.TabIndex = 7;
+            this.txtMinerals.TabStop = false;
+            this.txtMinerals.Text = "Minerals: 000000";
+            // 
+            // txtWater
+            // 
+            this.txtWater.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtWater.Location = new System.Drawing.Point(6, 31);
+            this.txtWater.Name = "txtWater";
+            this.txtWater.ReadOnly = true;
+            this.txtWater.Size = new System.Drawing.Size(149, 13);
+            this.txtWater.TabIndex = 6;
+            this.txtWater.TabStop = false;
+            this.txtWater.Text = "Water: 000000";
             // 
             // panel1
             // 
@@ -340,6 +445,26 @@
             this.timerAutoSave.Interval = 30000;
             this.timerAutoSave.Tick += new System.EventHandler(this.timerAutoSave_Tick);
             // 
+            // btnOrgansView
+            // 
+            this.btnOrgansView.Location = new System.Drawing.Point(7, 8);
+            this.btnOrgansView.Name = "btnOrgansView";
+            this.btnOrgansView.Size = new System.Drawing.Size(75, 23);
+            this.btnOrgansView.TabIndex = 4;
+            this.btnOrgansView.Text = "Organs";
+            this.btnOrgansView.UseVisualStyleBackColor = true;
+            this.btnOrgansView.Click += new System.EventHandler(this.btnOrgansView_Click);
+            // 
+            // btnHeightView
+            // 
+            this.btnHeightView.Location = new System.Drawing.Point(7, 37);
+            this.btnHeightView.Name = "btnHeightView";
+            this.btnHeightView.Size = new System.Drawing.Size(75, 23);
+            this.btnHeightView.TabIndex = 5;
+            this.btnHeightView.Text = "Height";
+            this.btnHeightView.UseVisualStyleBackColor = true;
+            this.btnHeightView.Click += new System.EventHandler(this.btnHeightView_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,16 +473,18 @@
             this.Controls.Add(this.txtEnergyHoverLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupboxStats);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.grpboxComponents);
+            this.Controls.Add(this.groupMetabuttons);
+            this.Controls.Add(this.grpboxOrgans);
             this.Name = "Form1";
             this.Text = "Test Idle";
-            this.grpboxComponents.ResumeLayout(false);
-            this.grpboxComponents.PerformLayout();
-            this.panelSolarCollector.ResumeLayout(false);
-            this.panelSolarCollector.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpboxOrgans.ResumeLayout(false);
+            this.grpboxOrgans.PerformLayout();
+            this.panelRoots.ResumeLayout(false);
+            this.panelRoots.PerformLayout();
+            this.panelLeaves.ResumeLayout(false);
+            this.panelLeaves.PerformLayout();
+            this.groupMetabuttons.ResumeLayout(false);
+            this.groupMetabuttons.PerformLayout();
             this.groupboxStats.ResumeLayout(false);
             this.groupboxStats.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -370,20 +497,20 @@
         #endregion
         private System.Windows.Forms.Timer timerTick;
         private System.Windows.Forms.TextBox txtEnergy;
-        private System.Windows.Forms.TextBox txtSollarCollectorsComponentLabel;
-        private System.Windows.Forms.Button btnSollarCollectorDeallocate;
-        private System.Windows.Forms.Button btnSolarCollectorAllocate;
+        private System.Windows.Forms.TextBox txtLeavesOrgan;
+        private System.Windows.Forms.Button btnLeavesDeallocate;
+        private System.Windows.Forms.Button btnLeavesAllocate;
         private System.Windows.Forms.TextBox txtInput;
         private System.Windows.Forms.TextBox txtInputLabel;
-        private System.Windows.Forms.TextBox txtSolarCollectorsEnergyLabel;
-        private System.Windows.Forms.TextBox txtSolarCollectorsLevelLabel;
-        private System.Windows.Forms.GroupBox grpboxComponents;
+        private System.Windows.Forms.TextBox txtLeavesEnergy;
+        private System.Windows.Forms.TextBox txtLeavesLevel;
+        private System.Windows.Forms.GroupBox grpboxOrgans;
         private System.Windows.Forms.TextBox txtComponentEnergyLabel;
         private System.Windows.Forms.TextBox txtComponentLevelLabel;
         private System.Windows.Forms.TextBox txtComonentNameLabel;
-        private System.Windows.Forms.Panel panelSolarCollector;
+        private System.Windows.Forms.Panel panelLeaves;
         private System.Windows.Forms.TextBox txtEnergyHoverLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupMetabuttons;
         private System.Windows.Forms.GroupBox groupboxStats;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel1;
@@ -391,7 +518,16 @@
         private System.Windows.Forms.TextBox txtLifeTimeLabel;
         private System.Windows.Forms.Timer timerAutoSave;
         private System.Windows.Forms.Button btnPrestige;
-        private System.Windows.Forms.TextBox txtHeight;
+        private System.Windows.Forms.TextBox txtWater;
+        private System.Windows.Forms.Panel panelRoots;
+        private System.Windows.Forms.TextBox txtRootsEnergy;
+        private System.Windows.Forms.Button btnRootsAllocate;
+        private System.Windows.Forms.Button btnRootsDeallocate;
+        private System.Windows.Forms.TextBox txtRootsLevel;
+        private System.Windows.Forms.TextBox txtRootsOrgan;
+        private System.Windows.Forms.TextBox txtMinerals;
+        private System.Windows.Forms.Button btnHeightView;
+        private System.Windows.Forms.Button btnOrgansView;
     }
 }
 

@@ -8,14 +8,16 @@ namespace TestIdle {
     public class Player {
         public DateTime startTime;
         public DateTime saveTime;
-        public double energyIdle = 100;
-        public double energyMax = 100;
-        public double energyCap = 1000;
-        public double energyPerTickBase = 0.1;
+        public double energyIdle;
+        public double energyMax;
+        public double energyCap;
+        public double energyPerTickBase;
         public double energyPerTick;
-        public int inputQuantity = 1;
-        public double height;
+        public int inputQuantity;
+        public double water;
+        public double minerals;
         public Organ leaves = new Organ();
+        public Organ roots = new Organ();
 
         public Player() {
             resetStats();
@@ -32,9 +34,9 @@ namespace TestIdle {
         private void resetStats() {
             startTime = DateTime.UtcNow;
             leaves.name = "Leaves";
-            leaves.level = 0;
-            leaves.energy = 0;
-            leaves.experience = 0;
+            leaves.prestige();
+            roots.name = "Roots";
+            roots.prestige();
         }
     }
 }

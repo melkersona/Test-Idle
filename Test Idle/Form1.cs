@@ -23,7 +23,8 @@ namespace TestIdle {
 
         private void timer1_Tick(object sender, EventArgs e) {
             //p.energyPerTick = p.energyPerTickBase + ((double)p.leaves.level * 2.5 * Constants._TicksPerSecond / Constants._MillisecondsPerSecond);
-            p.height += p.leaves.level / Constants._TicksPerSecond;
+            p.water += p.leaves.level / Constants._TicksPerSecond;
+            p.minerals += p.roots.level / Constants._TicksPerSecond;
             if (p.energyMax < p.energyCap) {
                 p.energyIdle += p.energyPerTick;
                 p.energyMax += p.energyPerTick;
@@ -34,6 +35,15 @@ namespace TestIdle {
             if (p.leaves.experience > 0) {
                 p.leaves.level = (int)Math.Floor(p.leaves.experience / 10);
             }
+
+            if (p.roots.energy > 0)
+            {
+                p.roots.experience += ((double)p.roots.energy / 100);
+            }
+            if (p.roots.experience > 0)
+            {
+                p.roots.level = (int)Math.Floor(p.roots.experience / 10);
+            }
             updateText();
         }
 
@@ -42,16 +52,19 @@ namespace TestIdle {
         }
         private void updateText() {
             txtEnergy.Text = String.Format("Current Energy: {0:0}/{1:0}", Math.Floor(p.energyIdle), Math.Floor(p.energyMax));
-            txtSolarCollectorsEnergyLabel.Text = $"{p.leaves.energy}";
-            txtSolarCollectorsLevelLabel.Text = $"{p.leaves.level}";
+            txtLeavesEnergy.Text = $"{p.leaves.energy}";
+            txtLeavesLevel.Text = $"{p.leaves.level}";
+            txtRootsEnergy.Text = $"{p.roots.energy}";
+            txtRootsLevel.Text = $"{p.roots.level}";
             txtEnergyHoverLabel.Text = ($"Your energy per second is: {p.energyPerTick * Constants._TicksPerSecond:0.00}\r\n" +
                 $"Your energy cap for this prestige is: {p.energyCap}");
             txtLifeTime.Text = String.Format("{0:hh}:{0:mm}:{0:ss}", DateTime.UtcNow.Subtract(p.startTime));
             txtInput.Text = $"{p.inputQuantity}";
-            txtHeight.Text = $"Height: {p.height:0.00}";
+            txtWater.Text = $"Water: {p.water:0.00}";
+            txtMinerals.Text = $"Minerals: {p.minerals:0.00}";
         }
 
-        private void btnSolarCollectorAllocate_Click(object sender, EventArgs e) {
+        private void btnLeavesAllocate_Click(object sender, EventArgs e) {
             if (p.energyIdle >= p.inputQuantity) {
                 p.leaves.energy += p.inputQuantity;
                 p.energyIdle -= p.inputQuantity;
@@ -61,7 +74,7 @@ namespace TestIdle {
             }
         }
 
-        private void btnSollarCollectorDeallocate_Click(object sender, EventArgs e) {
+        private void btnLeavesDeallocate_Click(object sender, EventArgs e) {
             if (p.leaves.energy >= p.inputQuantity) {
                 p.leaves.energy -= p.inputQuantity;
                 p.energyIdle += p.inputQuantity;
@@ -99,6 +112,44 @@ namespace TestIdle {
 
         private void btnPrestige_Click(object sender, EventArgs e) {
             p.Prestige();
+        }
+
+        private void btnRootsAllocate_Click(object sender, EventArgs e)
+        {
+            if (p.energyIdle >= p.inputQuantity)
+            {
+                p.roots.energy += p.inputQuantity;
+                p.energyIdle -= p.inputQuantity;
+            }
+            else
+            {
+                p.roots.energy += (int)Math.Floor(p.energyIdle);
+                p.energyIdle -= (int)Math.Floor(p.energyIdle);
+            }
+        }
+
+        private void btnRootsDeallocate_Click(object sender, EventArgs e)
+        {
+            if (p.roots.energy >= p.inputQuantity)
+            {
+                p.roots.energy -= p.inputQuantity;
+                p.energyIdle += p.inputQuantity;
+            }
+            else
+            {
+                p.energyIdle += p.roots.energy;
+                p.roots.energy = 0;
+            }
+        }
+
+        private void btnOrgansView_Click(object sender, EventArgs e)
+        {
+            this.grpboxOrgans.Visible = true;
+        }
+
+        private void btnHeightView_Click(object sender, EventArgs e)
+        {
+            this.grpboxOrgans.Visible = false;
         }
     }
 }
